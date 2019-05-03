@@ -54,7 +54,7 @@ exit;
         <input type="hidden" name="topic_id" value="<?php echo $topic_id; ?>">
         <button type="submit" name="submit" value="submit">Add Post</button>
     </form>
-    <p>Would you like to <a href="addtopic.html">add a topic</a>?</p>
+    <p>Would you like to <a href="addtopic.php">add a topic</a>?</p>
     <p>Would you like to <a href="topiclist.php">show topics list</a>?</p>
     </body>
     </html>

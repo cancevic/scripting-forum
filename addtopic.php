@@ -1,3 +1,23 @@
+<?php
+	/*function dispCategory() {
+		include 'conn.php'; 
+		doDB();
+		
+		$select = mysqli_query($mysqli, "SELECT * FROM forums");
+		
+		while ($row = mysqli_fetch_assoc($select)) {
+		echo "<select class='category_dropdown'>";
+		echo "<option value='category_option'>".$row['forum_name']."</option>";
+		echo "</select>";
+		}
+	}*/
+	
+		include 'conn.php';
+		doDB();
+		
+		$select = mysqli_query($mysqli, "SELECT * FROM forums");
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -10,13 +30,13 @@
 <link href=css/bootstrap.min.css rel="stylesheet">
 <link href=css/custom.css rel="stylesheet">
 </head>
-<nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="#">KICKS</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor01" aria-controls="navbarColor01" aria-expanded="false" aria-label="Toggle navigation">
+   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarColor01">
+  <div class="collapse navbar-collapse" id="navbarColor03">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item active">
         <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
@@ -46,21 +66,13 @@
 <p><label for="topic_title">Topic Title:</label><br/>
 <input type="text" id="topic_title" name="topic_title" size="40" maxlength="150" required="required" /></p>
 
-<<?ph
-	function disCategory() {
-		include 'conn.php'; 
-		doDB();
-		
-		$select = mysqli_query($mysqli, "SELECT * FROM forums");
-		
-		while ($row = mysqli_fetch_assoc($select)) {
-		echo "<select class='category_dropdown'>";
-		echo "<option value='category_option'>".$row"['forum_name']</option>";
-		echo "</select>";
-		}
-	}
-?>
-
+<p><label for="forum_name">Category:</label><br/>
+<select class="category_dropdown">
+<option selected ="selected">Choose Category</option>
+<?php while ($result = mysqli_fetch_array($select)):;?>
+<option><?php echo $result[1];?></option>
+<?php endwhile;?>
+</select>
 
 <p><label for="post_text">Post Text:</label><br/>
 <textarea id="post_text" name="post_text" rows="8" cols="40" ></textarea></p>

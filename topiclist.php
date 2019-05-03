@@ -86,7 +86,7 @@ $display_block .= "</table>";
 <body>
 <h1>Topics in My Forum</h1>
 <?php echo $display_block; ?>
-<p>Would you like to <a href="addtopic.html">add a topic</a>?</p>
+<p>Would you like to <a href="addtopic.php">add a topic</a>?</p>
 </body>
 </html>
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Apr 12, 2019 at 01:45 AM
+-- Generation Time: May 03, 2019 at 02:48 AM
 -- Server version: 5.7.21
 -- PHP Version: 5.6.35
 
@@ -31,9 +31,18 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `forums`;
 CREATE TABLE IF NOT EXISTS `forums` (
   `forum_id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL,
-  `description` varchar(250) NOT NULL
+  `forum_name` varchar(20) NOT NULL,
+  `forum_desc` varchar(250) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `forums`
+--
+
+INSERT INTO `forums` (`forum_id`, `forum_name`, `forum_desc`) VALUES
+(1, 'The Kicks', 'All About Shoes'),
+(2, 'The Lounge', 'General Stuff'),
+(3, 'Site Support', 'Site Support Stuff');
 
 -- --------------------------------------------------------
 
@@ -50,15 +59,14 @@ CREATE TABLE IF NOT EXISTS `forum_posts` (
   `post_owner` varchar(150) DEFAULT NULL,
   `forum_id` int(11) NOT NULL,
   PRIMARY KEY (`post_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `forum_posts`
 --
 
 INSERT INTO `forum_posts` (`post_id`, `topic_id`, `post_text`, `post_create_time`, `post_owner`, `forum_id`) VALUES
-(1, 1, 'heyhey', '2019-03-29 11:07:23', 'aaa@mm.com', 0),
-(2, 1, 'hoyhoyhoy', '2019-03-29 11:55:54', 'hah@mm.com', 0);
+(1, 1, 'heyhey', '2019-03-29 11:07:23', 'aaa@mm.com', 0);
 
 -- --------------------------------------------------------
 
@@ -74,7 +82,7 @@ CREATE TABLE IF NOT EXISTS `forum_topics` (
   `topic_owner` varchar(150) DEFAULT NULL,
   `forum_id` int(11) NOT NULL,
   PRIMARY KEY (`topic_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `forum_topics`
